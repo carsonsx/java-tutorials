@@ -1,0 +1,5 @@
+module carsonsx {
+    interface Hello {
+        string say();
+    };
+};
