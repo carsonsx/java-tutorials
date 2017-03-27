@@ -2,4 +2,6 @@ include 'websocket'
 include 'nio'
 include 'chat'
 include 'sharding'
+include 'rmi'
+include 'corba'
 

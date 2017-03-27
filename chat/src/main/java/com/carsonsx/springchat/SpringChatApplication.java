@@ -13,17 +13,14 @@ public class SpringChatApplication {
 
     public static void main(String[] args) throws Exception {
 
-
         AsynchronousNetServer.startServer();
 
         //SpringApplication.run(SpringChatApplication.class, args);
 
-        while(true) {
-
-            Thread.sleep(100);
-
+        Object lock = new Object();
+        synchronized (lock) {
+            lock.wait();
         }
-
 
     }
 

@@ -1,12 +1,10 @@
 buildscript {
 	ext {
-		springBootVersion = '2.0.0.BUILD-SNAPSHOT'
+		springBootVersion = '1.5.2.RELEASE'
 	}
 	repositories {
 		maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
 		mavenCentral()
-		maven { url "https://repo.spring.io/snapshot" }
-		maven { url "https://repo.spring.io/milestone" }
 	}
 	dependencies {
 		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
@@ -27,8 +25,6 @@ sourceCompatibility = 1.8
 repositories {
 	maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
 	mavenCentral()
-	maven { url "https://repo.spring.io/snapshot" }
-	maven { url "https://repo.spring.io/milestone" }
 }
 
 

@@ -1,4 +1,4 @@
-package com.carsonsx.springstudy.websocket;
+package com.carsonsx.rmi.websocket;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
