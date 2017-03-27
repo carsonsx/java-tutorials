@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="messages"></div>
+<div>
+    <input type="text" id="sendText"/><input type="button" value="Send" onclick="send()" />
+</div>
+
+</body>
+</html>
+
+<script type="text/javascript">
+
+    var webSocket = null;
+    if('WebSocket' in window){
+        webSocket = new WebSocket("ws://localhost:8080/websocket");
+    } else{
+        alert('Not support websocket')
+    }
+
+    webSocket.onerror = function(event) {
+      onError(event)
+    };
+
+    webSocket.onopen = function(event) {
+      onOpen(event)
+    };
+
+    webSocket.onmessage = function(event) {
+      onMessage(event)
+    };
+
+    function onMessage(event) {
+      document.getElementById('messages').innerHTML += '<br />' + event.data;
+    }
+
+    function onOpen(event) {
+      document.getElementById('messages').innerHTML = 'Connection established';
+    }
+
+    function onError(event) {
+      console.log(event);
+      alert("error: " + event);
+    }
+
+    function send() {
+      var msg = document.getElementById('sendText').value;
+      webSocket.send(msg);
+      document.getElementById('messages').innerHTML += '<br />' + msg;
+    }
+  </script>
